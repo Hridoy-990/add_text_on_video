@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Add_Text_On_Video</string>
+    <string name="btn_select_video">Select video file...</string>
+    <string name="warn_no_video">No video file generated yet</string>
+    <string name="warn_no_storage_permission">Don\'t have permission to select images from external storage</string>
+
+    <string name="err_no_input_file">Select video file that you want to convert to grayscale first</string>
+    <string name="btn_process">Add text to video</string>
+</resources>
