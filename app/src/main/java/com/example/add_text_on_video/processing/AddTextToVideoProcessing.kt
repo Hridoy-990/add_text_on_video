@@ -6,6 +6,7 @@ import android.opengl.*
 import android.opengl.Matrix
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.SystemClock
 import android.util.Log
 import android.util.Size
 import android.view.Surface
@@ -415,7 +416,11 @@ class AddTextToVideoProcessing {
         Matrix.setIdentityM(mvp, 0)
 
         // Prepare your other transformations for video frames here
-        // Matrix.scaleM(mvp, 0, 1f, -1f, 1f)
+       // Matrix.scaleM(mvp, 0, -1f, 1f, 1f)
+        // Create a rotation transformation for the triangle
+//        val time = SystemClock.uptimeMillis() % 4000L
+//        val angle = 0.090f * time.toInt()
+//        Matrix.setRotateM(mvp, 0, angle, 0f, 0f, -1.0f)
         //
 
         return mvp
@@ -426,7 +431,7 @@ class AddTextToVideoProcessing {
             val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
             // Pick an initial size to calculate the requested size later
-            paint.textSize = 62f
+            paint.textSize = 50f
 
             // Configure your text properties
             paint.color = Color.parseColor("#FF009FE3")

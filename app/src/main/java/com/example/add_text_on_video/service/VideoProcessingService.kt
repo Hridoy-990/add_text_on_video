@@ -23,7 +23,7 @@ class VideoProcessingService : IntentService("VideoProcessingService") {
         val inputVidUri = intent?.getParcelableExtra<Uri>(KEY_INPUT_VID_URI)
         val text = intent?.getStringExtra(KEY_TEXT)
         AddTextToVideoProcessing().process(outPath!!,
-            contentResolver.openFileDescriptor(inputVidUri!!, "r")!!.fileDescriptor, text ?: "Md Jahirul Islam Hridoy")
+            contentResolver.openFileDescriptor(inputVidUri!!, "r")!!.fileDescriptor, text ?: "Hridoy")
         val pi = intent?.getParcelableExtra<PendingIntent>(KEY_RESULT_INTENT)
         pi?.send()
     }

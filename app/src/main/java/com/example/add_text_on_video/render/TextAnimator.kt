@@ -1,6 +1,7 @@
 package com.example.add_text_on_video.render
 
 import android.opengl.Matrix
+import android.os.SystemClock
 import kotlin.math.tan
 
 /**
@@ -16,7 +17,7 @@ import kotlin.math.tan
 class TextAnimator {
     private val time = Time()
 
-    private var speed = 150f
+    private var speed = 120f
     private var textTarget = Vec3(0f, 0f, 0f)
     private var textPosition = Vec3(0f, 0f, 0f)
 
@@ -26,7 +27,7 @@ class TextAnimator {
     private var reachDistance = 2f
 
     // Scale for the text
-    private var scale = 12f
+    private var scale = 1f
 
     // Camera properties
     private var camDistance = 20f
@@ -94,6 +95,13 @@ class TextAnimator {
 
         val mvpMatrix = FloatArray(16)
         Matrix.multiplyMM(mvpMatrix, 0, projectionMatrix, 0, mvMatrix, 0)
+
+//        val time = SystemClock.uptimeMillis() % 4000L
+//        val angle = 0.090f * time.toInt()
+//        val rotateMatrix  = FloatArray(16)
+//        Matrix.setRotateM(rotateMatrix, 0, angle, 0f, 0f, -1f)
+//
+//        Matrix.multiplyMM(mvpMatrix, 0 , mvpMatrix , 0 , rotateMatrix , 0)
 
         return mvpMatrix
     }
