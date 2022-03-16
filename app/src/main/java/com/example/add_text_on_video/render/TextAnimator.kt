@@ -2,6 +2,7 @@ package com.example.add_text_on_video.render
 
 import android.opengl.Matrix
 import android.os.SystemClock
+import android.util.Log
 import kotlin.math.tan
 
 /**
@@ -81,6 +82,8 @@ class TextAnimator {
     }
 
     private fun getMVP(x: Float, y: Float, z: Float): FloatArray {
+
+        Log.e(TAG, "getMVP: calling" )
         // Move model to given position
         val modelMatrix = FloatArray(16)
         Matrix.setIdentityM(modelMatrix, 0)
@@ -104,5 +107,8 @@ class TextAnimator {
 //        Matrix.multiplyMM(mvpMatrix, 0 , mvpMatrix , 0 , rotateMatrix , 0)
 
         return mvpMatrix
+    }
+    companion object {
+        private const val TAG = "TextAnimator"
     }
 }
