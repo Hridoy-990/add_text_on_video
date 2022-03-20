@@ -17,4 +17,16 @@ class Time {
     fun update() {
         lastUpdate = System.currentTimeMillis().toFloat()
     }
+
+    var deltaTimeSec2: Float = 0f
+        get() {
+            if (lastUpdate2 == 0f) lastUpdate2 = System.currentTimeMillis().toFloat()
+            return (System.currentTimeMillis().toFloat() / lastUpdate2)/1000f
+        }
+
+    private var lastUpdate2 = 0f
+
+    fun update2() {
+        lastUpdate2 = System.currentTimeMillis().toFloat()
+    }
 }

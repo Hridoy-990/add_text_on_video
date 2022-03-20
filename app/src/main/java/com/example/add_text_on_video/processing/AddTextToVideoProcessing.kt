@@ -142,7 +142,7 @@ class AddTextToVideoProcessing {
             synchronized(lock) {
 
                 // New frame available before the last frame was process...we dropped some frames
-                if (frameAvailable) Log.d(MainActivity.TAG, "Frame available before the last frame was process...we dropped some frames")
+                if (frameAvailable) Log.e(MainActivity.TAG, "Frame available before the last frame was process...we dropped some frames")
 
                 frameAvailable = true
                 lock.notifyAll()
@@ -312,8 +312,13 @@ class AddTextToVideoProcessing {
 
                             videoRenderer?.draw(getMVP(), texMatrix!!, null)
 
-                            textAnimator.update()
                             textRenderer!!.draw(textAnimator.getMVP(), null, textToBitmap(text!!, width, height))
+
+                            textAnimator.update2()
+                            textRenderer!!.draw(textAnimator.getMVP2(), null, textToBitmap(text!!, width, height))
+
+                            textAnimator.update()
+                            textRenderer!!.draw(textAnimator.getMVP3(), null, textToBitmap(text!!, width, height))
 
                             EGLExt.eglPresentationTimeANDROID(eglDisplay, eglSurface,
                                 bufferInfo.presentationTimeUs * 1000)

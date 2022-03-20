@@ -18,7 +18,7 @@ class VideoProcessingService : IntentService("VideoProcessingService") {
         }
     }
 
-    private fun encodeVideos(intent: Intent) {
+    private fun encodeVideos(intent: Intent?) {
         val outPath = intent?.getStringExtra(KEY_OUT_PATH)
         val inputVidUri = intent?.getParcelableExtra<Uri>(KEY_INPUT_VID_URI)
         val text = intent?.getStringExtra(KEY_TEXT)
